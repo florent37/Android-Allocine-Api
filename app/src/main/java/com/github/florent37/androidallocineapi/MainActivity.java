@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         final AllocineApi allocineApi = new AllocineApi(okHttpClient);
 
-        allocineApi.movielist(AllocineApi.MovieListFilter.NOW_SHOWING, AllocineApi.MovieProfile.SMALL, AllocineApi.MovieListOrder.TOPRANK, 20, 1)
+        allocineApi.movieList(AllocineApi.MovieListFilter.NOW_SHOWING, AllocineApi.Profile.SMALL, AllocineApi.MovieListOrder.TOPRANK, 20, 1)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<List<Movie>>() {

@@ -3,7 +3,7 @@ Allocine Api for Android
 Made with Retrofit2, usable with RxJava2
 
 ```java
-allocineApi.movielist(AllocineApi.MovieListFilter.NOW_SHOWING, AllocineApi.MovieProfile.SMALL, AllocineApi.MovieListOrder.TOPRANK, 20, 1)
+allocineApi.movieList(AllocineApi.MovieListFilter.NOW_SHOWING, AllocineApi.Profile.SMALL, AllocineApi.MovieListOrder.TOPRANK, 20, 1)
                 
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -38,8 +38,8 @@ final AllocineApi allocineApi = new AllocineApi(okHttpClient);
 ## Movie List
 
 ```java
-allocineApi.movielist(AllocineApi.MovieListFilter.NOW_SHOWING, AllocineApi.MovieProfile.SMALL, AllocineApi.MovieListOrder.TOPRANK, numberElementsPerPage, page)
-allocineApi.movielist(AllocineApi.MovieListFilter.COMING_SOON, AllocineApi.MovieProfile.SMALL, AllocineApi.MovieListOrder.DATEDESC, numberElementsPerPage page)
+allocineApi.movieList(AllocineApi.MovieListFilter.NOW_SHOWING, AllocineApi.Profile.SMALL, AllocineApi.MovieListOrder.TOPRANK, numberElementsPerPage, page)
+allocineApi.movieList(AllocineApi.MovieListFilter.COMING_SOON, AllocineApi.Profile.SMALL, AllocineApi.MovieListOrder.DATEDESC, numberElementsPerPage page)
 ```
 
 ## Movie (movieId)
@@ -55,9 +55,15 @@ allocineApi.movie(movieId, AllocineApi.PROFILE_LARGE)
 ### Movie
 ### Star
 
+```java
+allocineApi.stars(PersonListFilter.TOP, AllocineApi.PROFILE_SMALL, numberElementsPerPage, page)
+```
+
 ## Star List
 
-## Star 
+```java
+allocineApi.starsList(PersonListFilter.TOP, AllocineApi.PROFILE_SMALL, numberElementsPerPage, page)
+```
 
 ## Filmography (starId)
 

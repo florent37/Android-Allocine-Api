@@ -137,7 +137,7 @@ public class AllocineApi {
     /**
      * Informations sur un film
      */
-    public Single<Movie> movie(String idFilm, MovieProfile profile) {
+    public Single<Movie> movie(String idFilm, Profile profile) {
         final String filter = FILTER_MOVIE;
 
         final String params = ServiceSecurity.construireParams(false,
@@ -423,13 +423,13 @@ public class AllocineApi {
 
     }
 
-    public Single<List<Movie>> movielist(MovieListFilter filter, MovieProfile profile, MovieListOrder order, int count, int page) {
-        return movielist(Arrays.asList(filter), profile, order, count, page);
+    public Single<List<Movie>> movieList(MovieListFilter filter, Profile profile, MovieListOrder order, int count, int page) {
+        return movieList(Arrays.asList(filter), profile, order, count, page);
     }
 
     //---------------------------------------------------------------------------------------------
 
-    public Single<List<Movie>> movielist(List<MovieListFilter> filter, MovieProfile profile, MovieListOrder order, int count, int page) {
+    public Single<List<Movie>> movieList(List<MovieListFilter> filter, Profile profile, MovieListOrder order, int count, int page) {
         final List<String> filterString = new ArrayList<>();
         for (MovieListFilter movieListFilter : filter) {
             filterString.add(movieListFilter.getValue());
@@ -484,16 +484,21 @@ public class AllocineApi {
 
     //---------------------------------------------------------------------------------------------
 
-    public Single<List<PersonFull>> startlist(String filter, String profile, int count, int page) {
-        return startlist(Arrays.asList(filter), profile, count, page);
+    public Single<List<PersonFull>> starsList(PersonListFilter filter, Profile profile, int count, int page) {
+        return starsList(Arrays.asList(filter), profile, count, page);
     }
 
     //---------------------------------------------------------------------------------------------
 
-    public Single<List<PersonFull>> startlist(List<String> filter, String profile, int count, int page) {
+    public Single<List<PersonFull>> starsList(List<PersonListFilter> filter, Profile profile, int count, int page) {
+        final List<String> filterString = new ArrayList<>();
+        for (PersonListFilter movieListFilter : filter) {
+            filterString.add(movieListFilter.getValue());
+        }
+
         final String params = ServiceSecurity.construireParams(true,
-                AllocineService.FILTER, filter,
-                AllocineService.PROFILE, profile,
+                AllocineService.FILTER, filterString,
+                AllocineService.PROFILE, profile.getValue(),
                 AllocineService.COUNT, "" + count,
                 AllocineService.PAGE, "" + page
         );
@@ -501,7 +506,7 @@ public class AllocineApi {
         final String sed = ServiceSecurity.getSED();
         final String sig = ServiceSecurity.getSIG(params, sed);
 
-        return allocineService.personList(ServiceSecurity.applatir(filter), profile, count, page, sed, sig)
+        return allocineService.personList(ServiceSecurity.applatir(filterString), profile.getValue(), count, page, sed, sig)
                 .map(new Function<AllocineResponse, List<PersonFull>>() {
                     @Override
                     public List<PersonFull> apply(AllocineResponse allocineResponse) throws Exception {
@@ -663,7 +668,7 @@ public class AllocineApi {
         }
     }
 
-    public enum MovieProfile {
+    public enum Profile {
         SMALL(PROFILE_SMALL),
         MEDIUM(PROFILE_MEDIUM),
         LARGE(PROFILE_LARGE);
@@ -671,7 +676,7 @@ public class AllocineApi {
 
         private final String value;
 
-        MovieProfile(String value) {
+        Profile(String value) {
             this.value = value;
         }
 
@@ -698,8 +703,24 @@ public class AllocineApi {
         }
     }
 
+    public enum PersonListFilter {
+        TOP(PERSONLIST_FILTER_PERSON);
+
+        private final String value;
+
+        PersonListFilter(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+    }
+
     public class NetworkException extends Exception {
     }
+
+
 
 
 }

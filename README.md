@@ -1,5 +1,6 @@
 # Android Allocine Api
 Allocine Api for Android
+Made with Retrofit2, usable with RxJava2
 
 ```java
 allocineApi.movielist(AllocineApi.MovieListFilter.NOW_SHOWING, AllocineApi.MovieProfile.SMALL, AllocineApi.MovieListOrder.TOPRANK, 20, 1)

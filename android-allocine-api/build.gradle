@@ -23,17 +23,17 @@ dependencies {
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'viewtooltip'
+    bintrayName = 'android-allocine-api'
     orgName = 'florent37'
 
     publishedGroupId = 'com.github.florent37'
-    libraryName = 'ViewTooltip'
-    artifact = 'viewtooltip'
+    libraryName = 'Android-Allocine-Api'
+    artifact = 'android-allocine-api'
 
-    libraryDescription = 'ViewTooltip'
+    libraryDescription = 'AndroidAllocineApi'
 
-    siteUrl = 'https://github.com/florent37/ViewTooltip'
-    gitUrl = 'https://github.com/florent37/ViewTooltip.git'
+    siteUrl = 'https://github.com/florent37/Android-Allocine-Api'
+    gitUrl = 'https://github.com/florent37/Android-Allocine-Api.git'
 
     libraryVersion = rootProject.ext.libraryVersion
 

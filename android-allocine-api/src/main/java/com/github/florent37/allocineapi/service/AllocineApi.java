@@ -137,17 +137,19 @@ public class AllocineApi {
     /**
      * Informations sur un film
      */
-    public Single<Movie> movie(String idFilm, String profile, String filter) {
+    public Single<Movie> movie(String idFilm, MovieProfile profile) {
+        final String filter = FILTER_MOVIE;
+
         final String params = ServiceSecurity.construireParams(false,
                 AllocineService.CODE, idFilm,
-                AllocineService.PROFILE, profile,
+                AllocineService.PROFILE, profile.getValue(),
                 AllocineService.FILTER, filter
         );
 
         final String sed = ServiceSecurity.getSED();
         final String sig = ServiceSecurity.getSIG(params, sed);
 
-        return allocineService.movie(idFilm, profile, filter, sed, sig)
+        return allocineService.movie(idFilm, profile.getValue(), filter, sed, sig)
                 .map(new Function<AllocineResponse, Movie>() {
                     @Override
                     public Movie apply(AllocineResponse allocineResponse) throws Exception {

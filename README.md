@@ -28,7 +28,18 @@ dependencies {
 
 ## Movie List
 
+```java
+allocineApi.movielist(AllocineApi.MovieListFilter.NOW_SHOWING, AllocineApi.MovieProfile.SMALL, AllocineApi.MovieListOrder.TOPRANK, numberElementsPerPage, page)
+allocineApi.movielist(AllocineApi.MovieListFilter.COMING_SOON, AllocineApi.MovieProfile.SMALL, AllocineApi.MovieListOrder.DATEDESC, numberElementsPerPage, page)
+```
+
 ## Movie (movieId)
+
+```java
+allocineApi.movie(movieId, AllocineApi.PROFILE_SMALL)
+allocineApi.movie(movieId, AllocineApi.PROFILE_MEDIUM)
+allocineApi.movie(movieId, AllocineApi.PROFILE_LARGE)
+```
 
 ## Search 
 

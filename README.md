@@ -1,8 +1,6 @@
 # Android Allocine Api
 Allocine Api for Android
 
-[![screen](https://raw.githubusercontent.com/florent37/ViewTooltip/master/medias/with_border.gif)](https://www.github.com/florent37/ViewTooltip)
-
 ```java
 allocineApi.movielist(AllocineApi.MovieListFilter.NOW_SHOWING, AllocineApi.MovieProfile.SMALL, AllocineApi.MovieListOrder.TOPRANK, 20, 1)
                 

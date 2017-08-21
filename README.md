@@ -24,13 +24,21 @@ dependencies {
 }
 ```
 
+# Init
+
+```
+final OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .build();
+final AllocineApi allocineApi = new AllocineApi(okHttpClient);
+```
+
 # Methods
 
 ## Movie List
 
 ```java
 allocineApi.movielist(AllocineApi.MovieListFilter.NOW_SHOWING, AllocineApi.MovieProfile.SMALL, AllocineApi.MovieListOrder.TOPRANK, numberElementsPerPage, page)
-allocineApi.movielist(AllocineApi.MovieListFilter.COMING_SOON, AllocineApi.MovieProfile.SMALL, AllocineApi.MovieListOrder.DATEDESC, numberElementsPerPage, page)
+allocineApi.movielist(AllocineApi.MovieListFilter.COMING_SOON, AllocineApi.MovieProfile.SMALL, AllocineApi.MovieListOrder.DATEDESC, numberElementsPerPage page)
 ```
 
 ## Movie (movieId)

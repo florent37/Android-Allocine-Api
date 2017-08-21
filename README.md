@@ -55,10 +55,6 @@ allocineApi.movie(movieId, AllocineApi.PROFILE_LARGE)
 ### Movie
 ### Star
 
-```java
-allocineApi.stars(PersonListFilter.TOP, AllocineApi.PROFILE_SMALL, numberElementsPerPage, page)
-```
-
 ## Star List
 
 ```java

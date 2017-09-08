@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class ServiceSecurity {
 
-    public static final String ALLOCINE_SECRET_KEY = "29d185d98c984a359e6e6f26a0474269";
+    public static final String ALLOCINE_SECRET_KEY = AllocineService.ALLOCINE_SECRET_KEY;
 
     static boolean AFFICHER_LOG = false;
     static String LOG_TAG = "ALLOCINE_SECRET";

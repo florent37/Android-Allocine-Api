@@ -10,8 +10,8 @@ public interface AllocineService {
 
     String ALLOCINE_PARTNER_KEY = "100043982026";
     String ALLOCINE_SECRET_KEY = "29d185d98c984a359e6e6f26a0474269";
-
     String APP_ID = "27405";
+
     String FORMAT_JSON = "json";
 
     String URL = "http://api.allocine.fr/";
